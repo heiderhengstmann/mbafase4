@@ -6,9 +6,6 @@ metadata:
     openshift.io/description: ''
     openshift.io/display-name: mba-teste
     openshift.io/requester: xkyczd
-    openshift.io/sa.scc.mcs: 's0:c85,c0'
-    openshift.io/sa.scc.supplemental-groups: 1007140000/10000
-    openshift.io/sa.scc.uid-range: 1007140000/10000
 spec:
   finalizers:
     - kubernetes
