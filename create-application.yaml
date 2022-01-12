@@ -2,12 +2,4 @@ kind: Project
 apiVersion: project.openshift.io/v1
 metadata:
   name: mba-teste
-  annotations:
-    openshift.io/description: ''
-    openshift.io/display-name: mba-teste
-    openshift.io/requester: xkyczd
-spec:
-  finalizers:
-    - kubernetes
-status:
-  phase: Active
+
