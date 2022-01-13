@@ -1,7 +1,0 @@
-apiVersion: project.openshift.io/v1
-description: "teste"
-displayName: teste
-namespace: teste
-kind: ProjectRequest
-metadata:
-    name: teste
