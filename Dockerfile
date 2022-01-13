@@ -4,7 +4,8 @@ USER root
 
 COPY . /tmp/src
 
-RUM /opt/app-root/bin/python3.8 -m pip install --upgrade pip
+RUN /opt/app-root/bin/python3.8 -m pip install --upgrade pip
+
 RUN mv /tmp/src/.s2i/bin /tmp/scripts
 
 RUN rm -rf /tmp/src/.git* && \
