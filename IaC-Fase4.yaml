@@ -524,10 +524,10 @@ status:
 kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2beta2
 metadata:
-  name: hpateste
+  name: hpafase4
   namespace: fiap
   selfLink: >-
-    /apis/autoscaling/v2beta2/namespaces/fiap/horizontalpodautoscalers/hpateste
+    /apis/autoscaling/v2beta2/namespaces/fiap/horizontalpodautoscalers/hpafase4
   uid: 0deb4972-26dc-464d-bd14-95385e0ffafe
   resourceVersion: '19398365'
   creationTimestamp: '2022-01-13T02:33:41Z'
