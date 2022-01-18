@@ -4,14 +4,14 @@ metadata:
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/vcs-ref: ''
-    app.openshift.io/vcs-uri: 'https://github.com/openshift-instruqt/blog-grupo11'
+    app.openshift.io/vcs-uri: 'https://github.com/openshift-instruqt/blog-django-py'
     deployment.kubernetes.io/revision: '4'
     image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag","name":"blog-grupo11:latest","namespace":"fiap-gp11"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-grupo11\")].image","pause":"false"}]
+      [{"from":{"kind":"ImageStreamTag","name":"blog-django-py:latest","namespace":"fiap-grupo11"},"fieldPath":"spec.template.spec.containers[?(@.name==\"blog-django-py\")].image","pause":"false"}]
     openshift.io/generated-by: OpenShiftWebConsole
-  selfLink: /apis/apps/v1/namespaces/fiap-gp11/deployments/blog-grupo11
+  selfLink: /apis/apps/v1/namespaces/fiap-grupo11/deployments/blog-django-py
   resourceVersion: '19353305'
-  name: blog-grupo11
+  name: blog-django-py
   uid: 89e57f49-5a1d-494c-b946-5856a8c43ef8
   creationTimestamp: '2022-01-13T01:37:50Z'
   generation: 9
@@ -61,7 +61,7 @@ metadata:
                 'f:deploymentconfig': {}
             'f:spec':
               'f:containers':
-                'k:{"name":"blog-grupo11"}':
+                'k:{"name":"blog-django-py"}':
                   .: {}
                   'f:imagePullPolicy': {}
                   'f:name': {}
@@ -89,7 +89,7 @@ metadata:
           'f:template':
             'f:spec':
               'f:containers':
-                'k:{"name":"blog-grupo11"}':
+                'k:{"name":"blog-django-py"}':
                   'f:image': {}
     - manager: oc
       operation: Update
@@ -101,7 +101,7 @@ metadata:
           'f:template':
             'f:spec':
               'f:containers':
-                'k:{"name":"blog-grupo11"}':
+                'k:{"name":"blog-django-py"}':
                   'f:env':
                     .: {}
                     'k:{"name":"BLOG_BANNER_COLOR"}':
@@ -141,30 +141,31 @@ metadata:
           'f:readyReplicas': {}
           'f:replicas': {}
           'f:updatedReplicas': {}
-  namespace: fiap-gp11
+  namespace: fiap-grupo11
   labels:
-    app: blog-grupo11
-    app.kubernetes.io/component: blog-grupo11
-    app.kubernetes.io/instance: blog-grupo11
+    app: blog-django-py
+    app.kubernetes.io/component: blog-django-py
+    app.kubernetes.io/instance: blog-django-py
     app.kubernetes.io/name: python
-    app.kubernetes.io/part-of: blog-grupo11-app
+    app.kubernetes.io/part-of: blog-django-py-app
     app.openshift.io/runtime: python
     app.openshift.io/runtime-version: latest
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: blog-grupo11
+      app: blog-django-py
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app: blog-grupo11
-        deploymentconfig: blog-grupo11
+        app: blog-django-py
+        deploymentconfig: blog-django-py
     spec:
       containers:
-        - name: blog-grupo11
+        - name: blog-django-py
           image: >-
-            image-registry.openshift-image-registry.svc:5000/fiap-gp11/blog-grupo11@sha256:7b1d2d843aa849cbbfec35ca947a1976183bf3e97675855a630e1b26e4b7547c
+            image-registry.openshift-image-registry.svc:5000/fiap-grupo11/blog-django-py@sha256:7b1d2d843aa849cbbfec35ca947a1976183bf3e97675855a630e1b26e4b7547c
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -199,7 +200,7 @@ status:
       lastUpdateTime: '2022-01-13T02:00:02Z'
       lastTransitionTime: '2022-01-13T01:37:50Z'
       reason: NewReplicaSetAvailable
-      message: ReplicaSet "blog-grupo11-9fc96b7f4" has successfully progressed.
+      message: ReplicaSet "blog-django-py-9fc96b7f4" has successfully progressed.
     - type: Available
       status: 'True'
       lastUpdateTime: '2022-01-13T02:51:30Z'
@@ -214,9 +215,9 @@ metadata:
     openshift.io/generated-by: OpenShiftNewApp
     template.alpha.openshift.io/wait-for-ready: 'true'
   selfLink: >-
-    /apis/apps.openshift.io/v1/namespaces/fiap-gp11/deploymentconfigs/database-grupo11
-  resourceVersion: '19340572'
-  name: database-grupo11
+    /apis/apps.openshift.io/v1/namespaces/fiap-grupo11/deploymentconfigs/sample-database
+  resourceVersion: '19737676'
+  name: sample-database
   uid: 385f2b90-50b0-43cb-a919-1d28bdb0a9bd
   creationTimestamp: '2022-01-13T02:03:16Z'
   generation: 6
@@ -347,7 +348,7 @@ metadata:
               'f:terminationGracePeriodSeconds': {}
               'f:volumes':
                 .: {}
-                'k:{"name":"database-grupo11-data"}':
+                'k:{"name":"sample-database-data"}':
                   .: {}
                   'f:name': {}
                   'f:persistentVolumeClaim':
@@ -356,7 +357,7 @@ metadata:
     - manager: openshift-controller-manager
       operation: Update
       apiVersion: apps.openshift.io/v1
-      time: '2022-01-13T02:30:18Z'
+      time: '2022-01-13T13:35:57Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:spec':
@@ -395,11 +396,11 @@ metadata:
           'f:observedGeneration': {}
           'f:unavailableReplicas': {}
           'f:latestVersion': {}
-  namespace: fiap-gp11
+  namespace: fiap-grupo11
   labels:
-    app: database-grupo11
-    app.kubernetes.io/component: database-grupo11
-    app.kubernetes.io/instance: database-grupo11
+    app: sample-database
+    app.kubernetes.io/component: sample-database
+    app.kubernetes.io/instance: sample-database
     template: postgresql-persistent-template
 spec:
   strategy:
@@ -425,18 +426,19 @@ spec:
   revisionHistoryLimit: 10
   test: false
   selector:
-    name: database-grupo11
+    name: sample-database
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        name: database-grupo11
+        name: sample-database
       annotations:
         openshift.io/generated-by: OpenShiftNewApp
     spec:
       volumes:
-        - name: database-grupo11-data
+        - name: sample-database-data
           persistentVolumeClaim:
-            claimName: database-grupo11
+            claimName: sample-database
       containers:
         - resources:
             limits:
@@ -466,17 +468,17 @@ spec:
             - name: POSTGRESQL_USER
               valueFrom:
                 secretKeyRef:
-                  name: database-grupo11
+                  name: sample-database
                   key: database-user
             - name: POSTGRESQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: database-grupo11
+                  name: sample-database
                   key: database-password
             - name: POSTGRESQL_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: database-grupo11
+                  name: sample-database
                   key: database-name
           securityContext:
             capabilities: {}
@@ -486,7 +488,7 @@ spec:
               protocol: TCP
           imagePullPolicy: IfNotPresent
           volumeMounts:
-            - name: database-grupo11-data
+            - name: sample-database-data
               mountPath: /var/lib/pgsql/data
           terminationMessagePolicy: File
           image: >-
@@ -512,11 +514,11 @@ status:
       lastUpdateTime: '2022-01-13T02:03:40Z'
       lastTransitionTime: '2022-01-13T02:03:40Z'
       reason: NewReplicationControllerAvailable
-      message: replication controller "database-grupo11-1" successfully rolled out
+      message: replication controller "sample-database-1" successfully rolled out
     - type: Available
       status: 'True'
-      lastUpdateTime: '2022-01-13T02:30:18Z'
-      lastTransitionTime: '2022-01-13T02:30:18Z'
+      lastUpdateTime: '2022-01-13T13:35:57Z'
+      lastTransitionTime: '2022-01-13T13:35:57Z'
       message: Deployment config has minimum availability.
   replicas: 1
   readyReplicas: 1
@@ -524,12 +526,12 @@ status:
 kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2beta2
 metadata:
-  name: hpafase4
-  namespace: fiap-gp11
+  name: hpateste
+  namespace: fiap-grupo11
   selfLink: >-
-    /apis/autoscaling/v2beta2/namespaces/fiap-gp11/horizontalpodautoscalers/hpafase4
+    /apis/autoscaling/v2beta2/namespaces/fiap-grupo11/horizontalpodautoscalers/hpateste
   uid: 0deb4972-26dc-464d-bd14-95385e0ffafe
-  resourceVersion: '19398365'
+  resourceVersion: '19400890'
   creationTimestamp: '2022-01-13T02:33:41Z'
   managedFields:
     - manager: Mozilla
@@ -565,7 +567,7 @@ metadata:
 spec:
   scaleTargetRef:
     kind: Deployment
-    name: blog-grupo11
+    name: blog-django-py
     apiVersion: apps/v1
   minReplicas: 2
   maxReplicas: 3
@@ -591,10 +593,8 @@ status:
     - type: AbleToScale
       status: 'True'
       lastTransitionTime: '2022-01-13T02:51:26Z'
-      reason: ScaleDownStabilized
-      message: >-
-        recent recommendations were higher than current one, applying the
-        highest recent recommendation
+      reason: ReadyForNewScale
+      message: recommended size matches current size
     - type: ScalingActive
       status: 'True'
       lastTransitionTime: '2022-01-13T02:51:41Z'
