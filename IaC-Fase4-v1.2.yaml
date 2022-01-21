@@ -319,7 +319,7 @@ spec:
             - name: BLOG_SITE_NAME
               value: 'FIAP ASO - GRUPO 11 '
             - name: DATABASE_URL
-              value: 'postgresql://sampledb:sampledb@sample-database-grupo11:5432/sampledb'
+              value: 'postgresql://sampledb:sampledb@postgresql:5432/sampledb'
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
@@ -355,321 +355,6 @@ status:
       lastTransitionTime: '2022-01-12T00:30:34Z'
       reason: NewReplicaSetAvailable
       message: ReplicaSet "blog-django-py-69b68b866" has successfully progressed.
----
-kind: DeploymentConfig
-apiVersion: apps.openshift.io/v1
-metadata:
-  annotations:
-    openshift.io/generated-by: OpenShiftNewApp
-    template.alpha.openshift.io/wait-for-ready: 'true'
-  selfLink: >-
-    /apis/apps.openshift.io/v1/namespaces/grupo11/deploymentconfigs/sample-database-grupo11
-  resourceVersion: '18363296'
-  name: sample-database-grupo11
-  uid: 899d0962-4444-4664-b901-73a59b920da3
-  creationTimestamp: '2022-01-12T00:49:39Z'
-  generation: 2
-  managedFields:
-    - manager: oc
-      operation: Update
-      apiVersion: apps.openshift.io/v1
-      time: '2022-01-12T00:49:39Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:openshift.io/generated-by': {}
-            'f:template.alpha.openshift.io/wait-for-ready': {}
-          'f:labels':
-            .: {}
-            'f:app': {}
-            'f:app.kubernetes.io/component': {}
-            'f:app.kubernetes.io/instance': {}
-            'f:template': {}
-        'f:spec':
-          'f:replicas': {}
-          'f:selector':
-            .: {}
-            'f:name': {}
-          'f:strategy':
-            'f:activeDeadlineSeconds': {}
-            'f:recreateParams':
-              .: {}
-              'f:timeoutSeconds': {}
-            'f:type': {}
-          'f:template':
-            .: {}
-            'f:metadata':
-              .: {}
-              'f:annotations':
-                .: {}
-                'f:openshift.io/generated-by': {}
-              'f:creationTimestamp': {}
-              'f:labels':
-                .: {}
-                'f:name': {}
-            'f:spec':
-              .: {}
-              'f:containers':
-                .: {}
-                'k:{"name":"postgresql"}':
-                  'f:volumeMounts':
-                    .: {}
-                    'k:{"mountPath":"/var/lib/pgsql/data"}':
-                      .: {}
-                      'f:mountPath': {}
-                      'f:name': {}
-                  'f:terminationMessagePolicy': {}
-                  .: {}
-                  'f:resources':
-                    .: {}
-                    'f:limits':
-                      .: {}
-                      'f:memory': {}
-                  'f:livenessProbe':
-                    .: {}
-                    'f:exec':
-                      .: {}
-                      'f:command': {}
-                    'f:failureThreshold': {}
-                    'f:initialDelaySeconds': {}
-                    'f:periodSeconds': {}
-                    'f:successThreshold': {}
-                    'f:timeoutSeconds': {}
-                  'f:env':
-                    .: {}
-                    'k:{"name":"POSTGRESQL_DATABASE"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef':
-                          .: {}
-                          'f:key': {}
-                          'f:name': {}
-                    'k:{"name":"POSTGRESQL_PASSWORD"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef':
-                          .: {}
-                          'f:key': {}
-                          'f:name': {}
-                    'k:{"name":"POSTGRESQL_USER"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef':
-                          .: {}
-                          'f:key': {}
-                          'f:name': {}
-                  'f:readinessProbe':
-                    .: {}
-                    'f:exec':
-                      .: {}
-                      'f:command': {}
-                    'f:failureThreshold': {}
-                    'f:initialDelaySeconds': {}
-                    'f:periodSeconds': {}
-                    'f:successThreshold': {}
-                    'f:timeoutSeconds': {}
-                  'f:securityContext':
-                    .: {}
-                    'f:capabilities': {}
-                    'f:privileged': {}
-                  'f:terminationMessagePath': {}
-                  'f:imagePullPolicy': {}
-                  'f:ports':
-                    .: {}
-                    'k:{"containerPort":5432,"protocol":"TCP"}':
-                      .: {}
-                      'f:containerPort': {}
-                      'f:protocol': {}
-                  'f:name': {}
-              'f:dnsPolicy': {}
-              'f:restartPolicy': {}
-              'f:schedulerName': {}
-              'f:securityContext': {}
-              'f:terminationGracePeriodSeconds': {}
-              'f:volumes':
-                .: {}
-                'k:{"name":"sample-database-grupo11-data"}':
-                  .: {}
-                  'f:name': {}
-                  'f:persistentVolumeClaim':
-                    .: {}
-                    'f:claimName': {}
-    - manager: openshift-controller-manager
-      operation: Update
-      apiVersion: apps.openshift.io/v1
-      time: '2022-01-12T00:50:05Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:template':
-            'f:spec':
-              'f:containers':
-                'k:{"name":"postgresql"}':
-                  'f:image': {}
-          'f:triggers': {}
-        'f:status':
-          'f:updatedReplicas': {}
-          'f:readyReplicas': {}
-          'f:conditions':
-            .: {}
-            'k:{"type":"Available"}':
-              .: {}
-              'f:lastTransitionTime': {}
-              'f:lastUpdateTime': {}
-              'f:message': {}
-              'f:status': {}
-              'f:type': {}
-            'k:{"type":"Progressing"}':
-              .: {}
-              'f:lastTransitionTime': {}
-              'f:lastUpdateTime': {}
-              'f:message': {}
-              'f:reason': {}
-              'f:status': {}
-              'f:type': {}
-          'f:details':
-            .: {}
-            'f:causes': {}
-            'f:message': {}
-          'f:replicas': {}
-          'f:availableReplicas': {}
-          'f:observedGeneration': {}
-          'f:unavailableReplicas': {}
-          'f:latestVersion': {}
-  namespace: grupo11
-  labels:
-    app: sample-database-grupo11
-    app.kubernetes.io/component: sample-database-grupo11
-    app.kubernetes.io/instance: sample-database-grupo11
-    template: postgresql-persistent-template
-spec:
-  strategy:
-    type: Recreate
-    recreateParams:
-      timeoutSeconds: 600
-    resources: {}
-    activeDeadlineSeconds: 21600
-  triggers:
-    - type: ImageChange
-      imageChangeParams:
-        automatic: true
-        containerNames:
-          - postgresql
-        from:
-          kind: ImageStreamTag
-          namespace: openshift
-          name: 'postgresql:10-el8'
-        lastTriggeredImage: >-
-          image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:c58b255376a4c1f6744b56389f0984f465b74e9c6a62626894f850ab74dec0ea
-    - type: ConfigChange
-  replicas: 1
-  revisionHistoryLimit: 10
-  test: false
-  selector:
-    name: sample-database-grupo11
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        name: sample-database-grupo11
-      annotations:
-        openshift.io/generated-by: OpenShiftNewApp
-    spec:
-      volumes:
-        - name: sample-database-grupo11-data
-          persistentVolumeClaim:
-            claimName: sample-database-grupo11
-      containers:
-        - resources:
-            limits:
-              memory: 512Mi
-          readinessProbe:
-            exec:
-              command:
-                - /usr/libexec/check-container
-            initialDelaySeconds: 5
-            timeoutSeconds: 1
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
-          terminationMessagePath: /dev/termination-log
-          name: postgresql
-          livenessProbe:
-            exec:
-              command:
-                - /usr/libexec/check-container
-                - '--live'
-            initialDelaySeconds: 120
-            timeoutSeconds: 10
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
-          env:
-            - name: POSTGRESQL_USER
-              valueFrom:
-                secretKeyRef:
-                  name: sample-database-grupo11
-                  key: database-user
-            - name: POSTGRESQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: sample-database-grupo11
-                  key: database-password
-            - name: POSTGRESQL_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: sample-database-grupo11
-                  key: database-name
-          securityContext:
-            capabilities: {}
-            privileged: false
-          ports:
-            - containerPort: 5432
-              protocol: TCP
-          imagePullPolicy: IfNotPresent
-          volumeMounts:
-            - name: sample-database-grupo11-data
-              mountPath: /var/lib/pgsql/data
-          terminationMessagePolicy: File
-          image: >-
-            image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:c58b255376a4c1f6744b56389f0984f465b74e9c6a62626894f850ab74dec0ea
-      restartPolicy: Always
-      terminationGracePeriodSeconds: 30
-      dnsPolicy: ClusterFirst
-      securityContext: {}
-      schedulerName: default-scheduler
-status:
-  observedGeneration: 2
-  details:
-    message: config change
-    causes:
-      - type: ConfigChange
-  availableReplicas: 1
-  unavailableReplicas: 0
-  latestVersion: 1
-  updatedReplicas: 1
-  conditions:
-    - type: Available
-      status: 'True'
-      lastUpdateTime: '2022-01-12T00:50:05Z'
-      lastTransitionTime: '2022-01-12T00:50:05Z'
-      message: Deployment config has minimum availability.
-    - type: Progressing
-      status: 'True'
-      lastUpdateTime: '2022-01-12T00:50:05Z'
-      lastTransitionTime: '2022-01-12T00:50:05Z'
-      reason: NewReplicationControllerAvailable
-      message: replication controller "sample-database-grupo11-1" successfully rolled out
-  replicas: 1
-  readyReplicas: 1
 ---
 kind: Secret
 apiVersion: v1
@@ -717,57 +402,6 @@ metadata:
         'f:type': {}
 data:
   WebHookSecretKey: NzViNzk3NTU4YTE1MDNkYQ==
-type: Opaque
----
-kind: Secret
-apiVersion: v1
-metadata:
-  annotations:
-    openshift.io/generated-by: OpenShiftNewApp
-    template.openshift.io/expose-database_name: '{.data[''database-name'']}'
-    template.openshift.io/expose-password: '{.data[''database-password'']}'
-    template.openshift.io/expose-username: '{.data[''database-user'']}'
-  selfLink: /api/v1/namespaces/grupo11/secrets/sample-database-grupo11
-  resourceVersion: '18362965'
-  name: sample-database-grupo11
-  uid: 3832d5e9-b519-4c8f-9f83-83717903f55a
-  creationTimestamp: '2022-01-12T00:49:39Z'
-  managedFields:
-    - manager: oc
-      operation: Update
-      apiVersion: v1
-      time: '2022-01-12T00:49:39Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:data':
-          .: {}
-          'f:database-name': {}
-          'f:database-password': {}
-          'f:database-user': {}
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:openshift.io/generated-by': {}
-            'f:template.openshift.io/expose-database_name': {}
-            'f:template.openshift.io/expose-password': {}
-            'f:template.openshift.io/expose-username': {}
-          'f:labels':
-            .: {}
-            'f:app': {}
-            'f:app.kubernetes.io/component': {}
-            'f:app.kubernetes.io/instance': {}
-            'f:template': {}
-        'f:type': {}
-  namespace: grupo11
-  labels:
-    app: sample-database-grupo11
-    app.kubernetes.io/component: sample-database-grupo11
-    app.kubernetes.io/instance: sample-database-grupo11
-    template: postgresql-persistent-template
-data:
-  database-name: c2FtcGxlZGI=
-  database-password: c2FtcGxlZGI=
-  database-user: c2FtcGxlZGI=
 type: Opaque
 ---
 kind: HorizontalPodAutoscaler
@@ -899,68 +533,6 @@ spec:
   selector:
     app: blog-django-py
     deploymentconfig: blog-django-py
-  type: ClusterIP
-  sessionAffinity: None
-status:
-  loadBalancer: {}
----
-kind: Service
-apiVersion: v1
-metadata:
-  annotations:
-    openshift.io/generated-by: OpenShiftNewApp
-    template.openshift.io/expose-uri: 'postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="postgresql")].port}'
-  selfLink: /api/v1/namespaces/grupo11/services/sample-database-grupo11
-  resourceVersion: '18362967'
-  name: sample-database-grupo11
-  uid: 0baf1565-254d-469b-b9aa-a20f3838a11a
-  creationTimestamp: '2022-01-12T00:49:39Z'
-  managedFields:
-    - manager: oc
-      operation: Update
-      apiVersion: v1
-      time: '2022-01-12T00:49:39Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:openshift.io/generated-by': {}
-            'f:template.openshift.io/expose-uri': {}
-          'f:labels':
-            .: {}
-            'f:app': {}
-            'f:app.kubernetes.io/component': {}
-            'f:app.kubernetes.io/instance': {}
-            'f:template': {}
-        'f:spec':
-          'f:ports':
-            .: {}
-            'k:{"port":5432,"protocol":"TCP"}':
-              .: {}
-              'f:name': {}
-              'f:port': {}
-              'f:protocol': {}
-              'f:targetPort': {}
-          'f:selector':
-            .: {}
-            'f:name': {}
-          'f:sessionAffinity': {}
-          'f:type': {}
-  namespace: grupo11
-  labels:
-    app: sample-database-grupo11
-    app.kubernetes.io/component: sample-database-grupo11
-    app.kubernetes.io/instance: sample-database-grupo11
-    template: postgresql-persistent-template
-spec:
-  ports:
-    - name: postgresql
-      protocol: TCP
-      port: 5432
-      targetPort: 5432
-  selector:
-    name: sample-database-grupo11
   type: ClusterIP
   sessionAffinity: None
 status:
@@ -1350,37 +922,464 @@ status:
             sha256:6af83cd7529a48995371d726c703c4f58d2ceba899a3e488ea7d0760c864986h
           generation: 1
 ---
-kind: PersistentVolumeClaim
+kind: Secret
 apiVersion: v1
 metadata:
   annotations:
-    openshift.io/generated-by: OpenShiftNewApp
-    pv.kubernetes.io/bind-completed: 'yes'
-    pv.kubernetes.io/bound-by-controller: 'yes'
-    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/cinder
-    volume.kubernetes.io/selected-node: na46-bjfsg-worker-0-lpvpl
-  selfLink: /api/v1/namespaces/grupo11/persistentvolumeclaims/sample-database-grupo11
-  resourceVersion: '18363036'
-  name: sample-database-grupo11
-  uid: 7128ab7f-5cf5-4876-aa02-27f5e0a8deea
-  creationTimestamp: '2022-01-12T00:49:39Z'
+    template.openshift.io/expose-database_name: '{.data[''database-name'']}'
+    template.openshift.io/expose-password: '{.data[''database-password'']}'
+    template.openshift.io/expose-username: '{.data[''database-user'']}'
+  selfLink: /api/v1/namespaces/grupo11/secrets/postgresql
+  resourceVersion: '27165393'
+  name: postgresql
+  uid: 032f3301-dbd2-4d89-8824-6d3c75055285
+  creationTimestamp: '2022-01-21T15:12:19Z'
   managedFields:
-    - manager: oc
+    - manager: openshift-controller-manager
       operation: Update
       apiVersion: v1
-      time: '2022-01-12T00:49:39Z'
+      time: '2022-01-21T15:12:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          .: {}
+          'f:database-name': {}
+          'f:database-password': {}
+          'f:database-user': {}
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:template.openshift.io/expose-database_name': {}
+            'f:template.openshift.io/expose-password': {}
+            'f:template.openshift.io/expose-username': {}
+          'f:labels':
+            .: {}
+            'f:template': {}
+            'f:template.openshift.io/template-instance-owner': {}
+        'f:type': {}
+  namespace: grupo11
+  labels:
+    template: postgresql-persistent-template
+    template.openshift.io/template-instance-owner: 6855dfba-be75-4c20-8a56-1aeb3e401583
+data:
+  database-name: c2FtcGxlZGI=
+  database-password: S3d1Ynh0RHVXUkxjdmNTQQ==
+  database-user: dXNlclg1Rw==
+type: Opaque
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: postgresql-persistent-parameters-4f2jd
+  generateName: postgresql-persistent-parameters-
+  namespace: grupo11
+  selfLink: /api/v1/namespaces/grupo11/secrets/postgresql-persistent-parameters-4f2jd
+  uid: a754c03b-294f-4f81-aeb4-8bde9ca2f990
+  resourceVersion: '27165389'
+  creationTimestamp: '2022-01-21T15:12:19Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2022-01-21T15:12:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          .: {}
+          'f:DATABASE_SERVICE_NAME': {}
+          'f:MEMORY_LIMIT': {}
+          'f:NAMESPACE': {}
+          'f:POSTGRESQL_DATABASE': {}
+          'f:POSTGRESQL_VERSION': {}
+          'f:VOLUME_CAPACITY': {}
+        'f:metadata':
+          'f:generateName': {}
+        'f:type': {}
+data:
+  DATABASE_SERVICE_NAME: cG9zdGdyZXNxbA==
+  MEMORY_LIMIT: NTEyTWk=
+  NAMESPACE: b3BlbnNoaWZ0
+  POSTGRESQL_DATABASE: c2FtcGxlZGI=
+  POSTGRESQL_VERSION: MTAtZWw4
+  VOLUME_CAPACITY: MUdp
+type: Opaque
+---
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    template.openshift.io/expose-uri: 'postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="postgresql")].port}'
+  selfLink: /api/v1/namespaces/grupo11/services/postgresql
+  resourceVersion: '27165395'
+  name: postgresql
+  uid: 5f942a6c-e84f-47be-b649-cdccf166df51
+  creationTimestamp: '2022-01-21T15:12:19Z'
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2022-01-21T15:12:19Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
           'f:annotations':
             .: {}
-            'f:openshift.io/generated-by': {}
+            'f:template.openshift.io/expose-uri': {}
           'f:labels':
             .: {}
-            'f:app': {}
-            'f:app.kubernetes.io/component': {}
-            'f:app.kubernetes.io/instance': {}
             'f:template': {}
+            'f:template.openshift.io/template-instance-owner': {}
+        'f:spec':
+          'f:ports':
+            .: {}
+            'k:{"port":5432,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector':
+            .: {}
+            'f:name': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+  namespace: grupo11
+  labels:
+    template: postgresql-persistent-template
+    template.openshift.io/template-instance-owner: 6855dfba-be75-4c20-8a56-1aeb3e401583
+spec:
+  ports:
+    - name: postgresql
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    name: postgresql
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
+---
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  annotations:
+    template.alpha.openshift.io/wait-for-ready: 'true'
+  selfLink: /apis/apps.openshift.io/v1/namespaces/grupo11/deploymentconfigs/postgresql
+  resourceVersion: '27165784'
+  name: postgresql
+  uid: b042a4c6-2da4-4515-a660-0ef83845890b
+  creationTimestamp: '2022-01-21T15:12:20Z'
+  generation: 2
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2022-01-21T15:12:51Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:template.alpha.openshift.io/wait-for-ready': {}
+          'f:labels':
+            .: {}
+            'f:template': {}
+            'f:template.openshift.io/template-instance-owner': {}
+        'f:spec':
+          'f:replicas': {}
+          'f:selector':
+            .: {}
+            'f:name': {}
+          'f:strategy':
+            'f:activeDeadlineSeconds': {}
+            'f:recreateParams':
+              .: {}
+              'f:timeoutSeconds': {}
+            'f:type': {}
+          'f:template':
+            .: {}
+            'f:metadata':
+              .: {}
+              'f:creationTimestamp': {}
+              'f:labels':
+                .: {}
+                'f:name': {}
+            'f:spec':
+              .: {}
+              'f:containers':
+                .: {}
+                'k:{"name":"postgresql"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/var/lib/pgsql/data"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:memory': {}
+                  'f:livenessProbe':
+                    .: {}
+                    'f:exec':
+                      .: {}
+                      'f:command': {}
+                    'f:failureThreshold': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:env':
+                    .: {}
+                    'k:{"name":"POSTGRESQL_DATABASE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    'k:{"name":"POSTGRESQL_PASSWORD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                    'k:{"name":"POSTGRESQL_USER"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:secretKeyRef':
+                          .: {}
+                          'f:key': {}
+                          'f:name': {}
+                  'f:readinessProbe':
+                    .: {}
+                    'f:exec':
+                      .: {}
+                      'f:command': {}
+                    'f:failureThreshold': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:securityContext':
+                    .: {}
+                    'f:capabilities': {}
+                    'f:privileged': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":5432,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:volumes':
+                .: {}
+                'k:{"name":"postgresql-data"}':
+                  .: {}
+                  'f:name': {}
+                  'f:persistentVolumeClaim':
+                    .: {}
+                    'f:claimName': {}
+          'f:triggers': {}
+        'f:status':
+          'f:updatedReplicas': {}
+          'f:readyReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:details':
+            .: {}
+            'f:causes': {}
+            'f:message': {}
+          'f:replicas': {}
+          'f:availableReplicas': {}
+          'f:observedGeneration': {}
+          'f:unavailableReplicas': {}
+          'f:latestVersion': {}
+  namespace: grupo11
+  labels:
+    template: postgresql-persistent-template
+    template.openshift.io/template-instance-owner: 6855dfba-be75-4c20-8a56-1aeb3e401583
+    app: postgresql
+    app.kubernetes.io/component: postgresql
+    app.kubernetes.io/instance: postgresql
+spec:
+  strategy:
+    type: Recreate
+    recreateParams:
+      timeoutSeconds: 600
+    resources: {}
+    activeDeadlineSeconds: 21600
+  triggers:
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - postgresql
+        from:
+          kind: ImageStreamTag
+          namespace: openshift
+          name: 'postgresql:10-el8'
+        lastTriggeredImage: >-
+          image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:c58b255376a4c1f6744b56389f0984f465b74e9c6a62626894f850ab74dec0ea
+    - type: ConfigChange
+  replicas: 1
+  revisionHistoryLimit: 10
+  test: false
+  selector:
+    name: postgresql
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: postgresql
+    spec:
+      volumes:
+        - name: postgresql-data
+          persistentVolumeClaim:
+            claimName: postgresql
+      containers:
+        - resources:
+            limits:
+              memory: 512Mi
+          readinessProbe:
+            exec:
+              command:
+                - /usr/libexec/check-container
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          name: postgresql
+          livenessProbe:
+            exec:
+              command:
+                - /usr/libexec/check-container
+                - '--live'
+            initialDelaySeconds: 120
+            timeoutSeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql
+                  key: database-user
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql
+                  key: database-password
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql
+                  key: database-name
+          securityContext:
+            capabilities: {}
+            privileged: false
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: postgresql-data
+              mountPath: /var/lib/pgsql/data
+          terminationMessagePolicy: File
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:c58b255376a4c1f6744b56389f0984f465b74e9c6a62626894f850ab74dec0ea
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+status:
+  observedGeneration: 2
+  details:
+    message: config change
+    causes:
+      - type: ConfigChange
+  availableReplicas: 1
+  unavailableReplicas: 0
+  latestVersion: 1
+  updatedReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2022-01-21T15:12:51Z'
+      lastTransitionTime: '2022-01-21T15:12:51Z'
+      message: Deployment config has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2022-01-21T15:12:51Z'
+      lastTransitionTime: '2022-01-21T15:12:51Z'
+      reason: NewReplicationControllerAvailable
+      message: replication controller "postgresql-1" successfully rolled out
+  replicas: 1
+  readyReplicas: 1
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  annotations:
+    pv.kubernetes.io/bind-completed: 'yes'
+    pv.kubernetes.io/bound-by-controller: 'yes'
+    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/cinder
+    volume.kubernetes.io/selected-node: na46-bjfsg-worker-0-nph4m
+  selfLink: /api/v1/namespaces/grupo11/persistentvolumeclaims/postgresql
+  resourceVersion: '27165468'
+  name: postgresql
+  uid: d4608ab7-5b56-4b3f-bb34-79d69330a41e
+  creationTimestamp: '2022-01-21T15:12:19Z'
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2022-01-21T15:12:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:template': {}
+            'f:template.openshift.io/template-instance-owner': {}
         'f:spec':
           'f:accessModes': {}
           'f:resources':
@@ -1391,16 +1390,17 @@ metadata:
     - manager: kube-scheduler
       operation: Update
       apiVersion: v1
-      time: '2022-01-12T00:49:42Z'
+      time: '2022-01-21T15:12:23Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
           'f:annotations':
+            .: {}
             'f:volume.kubernetes.io/selected-node': {}
     - manager: kube-controller-manager
       operation: Update
       apiVersion: v1
-      time: '2022-01-12T00:49:43Z'
+      time: '2022-01-21T15:12:24Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -1420,17 +1420,15 @@ metadata:
   finalizers:
     - kubernetes.io/pvc-protection
   labels:
-    app: sample-database-grupo11
-    app.kubernetes.io/component: sample-database-grupo11
-    app.kubernetes.io/instance: sample-database-grupo11
     template: postgresql-persistent-template
+    template.openshift.io/template-instance-owner: 6855dfba-be75-4c20-8a56-1aeb3e401583
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
-  volumeName: pvc-7128ab7f-5cf5-4876-aa02-27f5e0a8deee
+  volumeName: pvc-d4608ab7-5b56-4b3f-bb34-79d69330a41e
   storageClassName: standard
   volumeMode: Filesystem
 status:
